@@ -1,6 +1,8 @@
 import React, { Component, cloneElement, Children } from 'react';
 import PropTypes from 'prop-types'
 
+
+
 class ChartistGraph extends Component {
 
   displayName: 'ChartistGraph'
@@ -25,9 +27,11 @@ class ChartistGraph extends Component {
 
   updateChart(config) {
     let Chartist = require('chartist');
+    let Tooltip = require('chartist-plugin-tooltips-updated');
 
     let { type, data } = config;
     let options = config.options || {};
+    options.plugins = [Chartist.plugins.tooltip()]
     let responsiveOptions = config.responsiveOptions || [];
     let event;
 
